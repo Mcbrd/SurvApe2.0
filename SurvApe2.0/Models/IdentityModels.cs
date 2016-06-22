@@ -20,6 +20,10 @@ namespace SurvApe2._0.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Survey> Surveys { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Response> Responses { get; set; }
+        public DbSet<Answer> Answers { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -28,6 +32,16 @@ namespace SurvApe2._0.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Answer>()
+                        .HasRequired(x => x.Question)
+                        .WithMany()
+                        .HasForeignKey(x => x.QuestionId)
+                        .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
