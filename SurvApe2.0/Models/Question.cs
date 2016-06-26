@@ -9,7 +9,7 @@ namespace SurvApe2._0.Models
     {
         public int Id { get; set; }
 
-        public int SurveyId { get; set; }
+        public virtual int SurveyId { get; set; }
 
         public string QuestionText { get; set; }
 

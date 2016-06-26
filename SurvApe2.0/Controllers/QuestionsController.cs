@@ -10,109 +10,110 @@ using SurvApe2._0.Models;
 
 namespace SurvApe2._0.Controllers
 {
-    public class SurveysController : Controller
+    public class QuestionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Surveys
+        // GET: Questions
         public ActionResult Index()
         {
-            return View(db.Surveys.ToList());
+            return View(db.Questions.ToList());
         }
 
-        // GET: Surveys/Details/5
+        // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Survey survey = db.Surveys.Find(id);
-            if (survey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(survey);
+            return View(question);
         }
 
-        // GET: Surveys/Create
+        // GET: Questions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Surveys/Create
+        // POST: Questions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Survey survey)
+        public ActionResult Create([Bind(Include = "Id,SurveyId,QuestionText")] Question question, Survey survey)
         {
-            TempData["survey"] = survey;
+            survey = (Survey)TempData["survey"];
 
             if (ModelState.IsValid)
             {
-                db.Surveys.Add(survey);
+                question.SurveyId = survey.Id;
+                db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Create", "Questions");
+                return RedirectToAction("Create");
             }
 
-            return View(survey);
+            return View(question);
         }
 
-        // GET: Surveys/Edit/5
+        // GET: Questions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Survey survey = db.Surveys.Find(id);
-            if (survey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(survey);
+            return View(question);
         }
 
-        // POST: Surveys/Edit/5
+        // POST: Questions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Survey survey)
+        public ActionResult Edit([Bind(Include = "Id,SurveyId,QuestionText")] Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(survey).State = EntityState.Modified;
+                db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(survey);
+            return View(question);
         }
 
-        // GET: Surveys/Delete/5
+        // GET: Questions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Survey survey = db.Surveys.Find(id);
-            if (survey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(survey);
+            return View(question);
         }
 
-        // POST: Surveys/Delete/5
+        // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Survey survey = db.Surveys.Find(id);
-            db.Surveys.Remove(survey);
+            Question question = db.Questions.Find(id);
+            db.Questions.Remove(question);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
