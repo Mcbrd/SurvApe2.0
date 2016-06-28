@@ -48,7 +48,7 @@ namespace SurvApe2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name")] Survey survey)
         {
-            TempData["survey"] = survey;
+                        TempData["survey"] = survey;
 
             if (ModelState.IsValid)
             {
@@ -115,6 +115,27 @@ namespace SurvApe2._0.Controllers
             db.Surveys.Remove(survey);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult AnswerQuestions(int? id)
+        {
+           //List<Question> questList = new List<Question>();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Survey survey = db.Surveys.Find(id);
+            var questionQuery = from q in db.Questions
+                           where q.SurveyId == id
+                           select q;
+            List<Question> questList = questionQuery.ToList();
+      
+
+            if (questList == null)
+            {
+                return HttpNotFound();
+            }
+            return View(questList);
         }
 
         protected override void Dispose(bool disposing)

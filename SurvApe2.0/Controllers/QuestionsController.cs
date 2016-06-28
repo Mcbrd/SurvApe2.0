@@ -20,6 +20,7 @@ namespace SurvApe2._0.Controllers
             return View(db.Questions.ToList());
         }
 
+
         // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
@@ -116,6 +117,24 @@ namespace SurvApe2._0.Controllers
             db.Questions.Remove(question);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        [HttpPost]
+
+        public ActionResult Submit(List<Question> model)
+        {
+            Answer answer = new Answer();
+            Response response = new Response();
+            foreach (Question item in model)
+            {
+                //answer.QuestionId = item.Id;
+
+                response.Value = item.Value;
+                response.SurveyId = item.SurveyId;
+                db.Responses.Add(response);
+                db.SaveChanges();// ForeignKeyConstraint conflict id
+
+            }
+            return View();
         }
 
         protected override void Dispose(bool disposing)

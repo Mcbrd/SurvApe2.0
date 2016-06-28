@@ -13,6 +13,9 @@ namespace SurvApe2._0.Models
 
         public string QuestionText { get; set; }
 
+        public string Value { get; set; }
+
+
         public List<Answer> Answers { get; set; }
     }
 }

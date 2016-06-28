@@ -7,13 +7,13 @@ namespace SurvApe2._0.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class questionVirtualSurveyid : IMigrationMetadata
+    public sealed partial class answerRemoveResponse : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(questionVirtualSurveyid));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(answerRemoveResponse));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606261830543_questionVirtualSurveyid"; }
+            get { return "201606281854418_answerRemoveResponse"; }
         }
         
         string IMigrationMetadata.Source
