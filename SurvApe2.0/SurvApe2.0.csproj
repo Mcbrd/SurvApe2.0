@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\ResponseViewModelController.cs" />
     <Compile Include="Controllers\SurveysController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,13 +184,27 @@
     <Compile Include="Migrations\201606281854418_answerRemoveResponse.Designer.cs">
       <DependentUpon>201606281854418_answerRemoveResponse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607011833221_viewmodel.cs" />
+    <Compile Include="Migrations\201607011833221_viewmodel.Designer.cs">
+      <DependentUpon>201607011833221_viewmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011938248_redo.cs" />
+    <Compile Include="Migrations\201607011938248_redo.Designer.cs">
+      <DependentUpon>201607011938248_redo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607201810464_enum.cs" />
+    <Compile Include="Migrations\201607201810464_enum.Designer.cs">
+      <DependentUpon>201607201810464_enum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionType.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\ResponseViewModel.cs" />
     <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -261,6 +276,8 @@
     <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Shared\AnswerQuestions.cshtml" />
     <Content Include="Views\Questions\Submit.cshtml" />
+    <Content Include="Views\Shared\ViewResponses.cshtml" />
+    <Content Include="Views\ResponseViewModel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -279,6 +296,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606281854418_answerRemoveResponse.resx">
       <DependentUpon>201606281854418_answerRemoveResponse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011833221_viewmodel.resx">
+      <DependentUpon>201607011833221_viewmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011938248_redo.resx">
+      <DependentUpon>201607011938248_redo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607201810464_enum.resx">
+      <DependentUpon>201607201810464_enum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

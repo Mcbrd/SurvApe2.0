@@ -1,0 +1,27 @@
+﻿@model IList<SurvApe2._0.Models.Response>
+
+@{
+    ViewBag.Title = "ViewResponses";
+}
+
+<h2>ViewResponses</h2>
+
+<table class="table">
+@foreach (var item in Model)
+{
+    //add question text to Response instead of survey id or use viewmodel
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.SurveyId)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Value)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+}
+
+
+</table>

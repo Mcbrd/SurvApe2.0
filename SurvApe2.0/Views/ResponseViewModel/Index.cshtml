@@ -1,0 +1,61 @@
+﻿@model SurvApe2._0.Models.ResponseViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Reports <small>@Model</small></h2>
+<div class="row">
+    <div class="span12">
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            <div>
+                @Html.DisplayFor(x => x.Questions[i].QuestionText, "QText")
+
+                @Html.DisplayFor(x => x.Questions[i].Responses[i].Value, "value")
+
+
+        </div>
+
+
+
+
+
+            }
+        </div>
+
+            <div>
+                @Html.DisplayFor(x => x.Questions, "Questions")
+
+
+            </div>
+            <div>
+                @Html.DisplayFor(x => x.Id)
+
+
+            </div>
+            <div>
+                @Html.DisplayFor(x => x.Survey, "Survey")
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+

@@ -26,7 +26,12 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |
-            @Html.ActionLink("View Survey", "AnswerQuestions", new { id = item.Id }, null)
+            @Html.ActionLink("View Survey", "AnswerQuestions", new { id = item.Id }, null) |
+            @Html.ActionLink("View Results", "Index", "ResponseViewModel", new { id = item.Id }, null)
+
+
+
+
 
 
         </td>

@@ -15,6 +15,11 @@ namespace SurvApe2._0.Models
 
         public string Value { get; set; }
 
+        public int NumberOfAnswers { get; set; }
+
+        public string AnswerOption { get; set; }
+
+        public QuestionType Type { get; set; }
 
         public List<Answer> Answers { get; set; }
     }

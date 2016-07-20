@@ -47,7 +47,7 @@ namespace SurvApe2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,SurveyId,QuestionText")] Question question, Survey survey)
+        public ActionResult Create([Bind(Include = "Id,SurveyId,QuestionText, Type")] Question question, Survey survey)
         {
             survey = (Survey)TempData["survey"];
 
@@ -126,12 +126,10 @@ namespace SurvApe2._0.Controllers
             Response response = new Response();
             foreach (Question item in model)
             {
-                //answer.QuestionId = item.Id;
-
                 response.Value = item.Value;
                 response.SurveyId = item.SurveyId;
                 db.Responses.Add(response);
-                db.SaveChanges();// ForeignKeyConstraint conflict id
+                db.SaveChanges();
 
             }
             return View();

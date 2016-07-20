@@ -138,6 +138,62 @@ namespace SurvApe2._0.Controllers
             return View(questList);
         }
 
+        public ActionResult ViewResponses(int? id)
+        {
+            //List<Question> questList = new List<Question>();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Survey survey = db.Surveys.Find(id);
+            var responseQuery = from q in db.Responses
+                                where q.SurveyId == id
+                                select q;
+            List<Response> responseList = responseQuery.ToList();
+
+
+            if (responseList == null)
+            {
+                return HttpNotFound();
+            }
+            return View(responseList); // ^Workingish
+
+            //List<QuestionViewModel> questionsVM = new List<QuestionViewModel>();
+            //Survey survey = db.Surveys.Find(id);
+            //var responseQuery = from r in db.Responses
+            //                    where r.SurveyId == id
+            //                    select r;
+            //List<Response> Responses = responseQuery.ToList();
+
+            //var questionQuery = from q in db.Questions
+            //                    where q.SurveyId == id
+            //                    select q;
+            //List<Question> questions = questionQuery.ToList();
+
+
+            //var vm = new ResponseViewModel
+            //{
+         
+            //    Survey = survey,
+            //    Questions = questionsVM
+            //};
+
+            //foreach(Question item in questions)
+            //{
+
+            //    QuestionViewModel qvm = new QuestionViewModel();
+            //    qvm.QuestionText = item.QuestionText;
+
+            //    questionsVM.Add(qvm);
+            //        }
+
+            //return View(vm);
+
+
+
+
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -70,3 +70,6 @@ c:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2._0.Migrations.init.resources
 c:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2.0.csproj.GenerateResource.Cache
 C:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2.0.csprojResolveAssemblyReference.cache
 C:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2._0.Migrations.answerRemoveResponse.resources
+C:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2._0.Migrations.viewmodel.resources
+C:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2._0.Migrations.redo.resources
+C:\Dev\SurvApe2.0\SurvApe2.0\obj\Debug\SurvApe2._0.Migrations._enum.resources
