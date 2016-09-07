@@ -196,9 +196,22 @@
     <Compile Include="Migrations\201607201810464_enum.Designer.cs">
       <DependentUpon>201607201810464_enum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607201940245_answeroptions.cs" />
+    <Compile Include="Migrations\201607201940245_answeroptions.Designer.cs">
+      <DependentUpon>201607201940245_answeroptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607272316448_jquery.cs" />
+    <Compile Include="Migrations\201607272316448_jquery.Designer.cs">
+      <DependentUpon>201607272316448_jquery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607281800145_answeroption.cs" />
+    <Compile Include="Migrations\201607281800145_answeroption.Designer.cs">
+      <DependentUpon>201607281800145_answeroption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\AnswerOption.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs" />
@@ -278,6 +291,7 @@
     <Content Include="Views\Questions\Submit.cshtml" />
     <Content Include="Views\Shared\ViewResponses.cshtml" />
     <Content Include="Views\ResponseViewModel\Index.cshtml" />
+    <Content Include="Views\Questions\AnswerOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +319,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607201810464_enum.resx">
       <DependentUpon>201607201810464_enum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607201940245_answeroptions.resx">
+      <DependentUpon>201607201940245_answeroptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607272316448_jquery.resx">
+      <DependentUpon>201607272316448_jquery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607281800145_answeroption.resx">
+      <DependentUpon>201607281800145_answeroption.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

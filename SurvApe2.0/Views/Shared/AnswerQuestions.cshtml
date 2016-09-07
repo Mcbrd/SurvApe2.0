@@ -24,7 +24,50 @@
 }
 @if (Model[i].Type == SurvApe2._0.Models.QuestionType.MultipleChoice)
 {
-    @Html.RadioButtonFor(m => m[i].Value, "Value")
+    @*@Html.TextBoxFor(m => m[i].NumberOfAnswers)*@
+
+    //for (var N = 0; N < Model[i+1].NumberOfAnswers; N++)
+    //foreach (int Num in Model[i].NumberOfAnswers)
+    {
+        var numitem = Model.ElementAt(i);
+    @*<td> @Html.Label((N + 1).ToString()) </td>*@
+        // <td> @numitem.QuestionText </td>
+
+        foreach(var ans in Model[i].AnswerOptions)
+        {
+            <td>
+
+                @Html.DisplayFor(m => ans.AnswerText)
+            </td>
+            <td>
+                @Html.RadioButton(ans.ToString(), ans)
+            </td>
+            @Html.HiddenFor(x => x[i].SurveyId)
+            @Html.HiddenFor(x => x[i].QuestionText)
+            @Html.HiddenFor(x => x[i].Id)
+            @Html.HiddenFor(x => x[i].Answers)
+            @Html.HiddenFor(x => x[i].AnswerOptions)
+            @Html.HiddenFor(x => x[i].Value)
+
+
+
+
+
+
+
+        }
+
+
+    
+        @*for (var a = 0; a < numitem.AnswerOptions.Count();a++)
+        {
+            @Html.RadioButtonFor(o => o[a].AnswerOptions, "Answer")
+        }*@
+
+    @*@Html.RadioButtonFor(m => m[N+1].NumberOfAnswers, N)*@
+
+    }
+
 }
 
 

@@ -39,7 +39,7 @@ namespace SurvApe2._0.Controllers
                                 where q.SurveyId == id
                                 select q;
             List<Question> questions = questionQuery.ToList();
-
+             
 
             var vm = new ResponseViewModel
             {

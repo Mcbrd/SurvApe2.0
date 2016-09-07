@@ -24,6 +24,8 @@ namespace SurvApe2._0.Models
         public DbSet<Question> Questions { get; set; }
         public DbSet<Response> Responses { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<AnswerOption> AnswerOptions { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

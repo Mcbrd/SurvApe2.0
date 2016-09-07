@@ -15,12 +15,16 @@ namespace SurvApe2._0.Models
 
         public string Value { get; set; }
 
-        public int NumberOfAnswers { get; set; }
-
-        public string AnswerOption { get; set; }
+        public virtual List<AnswerOption> AnswerOptions { get; set; }
 
         public QuestionType Type { get; set; }
 
         public List<Answer> Answers { get; set; }
+        public Question()
+        {
+            Answers = new List<Answer>();
+            AnswerOptions = new List<AnswerOption>();
+        }
+
     }
 }
